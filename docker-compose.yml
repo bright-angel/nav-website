@@ -1,0 +1,12 @@
+services:
+  nav:
+    build: .
+    container_name: nav-website
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./data:/app/data
+    environment:
+      - ADMIN_USER=admin
+      - ADMIN_PASS=admin123
+    restart: unless-stopped

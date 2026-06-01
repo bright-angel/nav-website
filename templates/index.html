@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+{% block title %}Nav Hub - Home{% endblock %}
+{% block content %}
+
+<div class="mb-4">
+  <input
+    type="text"
+    id="searchBox"
+    class="form-control form-control-lg"
+    placeholder="Search sites..."
+    autocomplete="off"
+  >
+</div>
+
+{% for category, sites in categories.items() %}
+<section class="category-section mb-5" data-category="{{ category }}">
+  <h4 class="mb-3 text-primary-emphasis">
+    <i class="bi bi-folder2-open"></i> {{ category }}
+  </h4>
+  <div class="row g-3">
+    {% for site in sites %}
+    <div class="col-6 col-md-4 col-lg-3 site-card-wrapper" data-keywords="{{ site.name }} {{ site.description }} {{ site.category }}">
+      <a href="{{ site.url }}" target="_blank" class="card site-card text-decoration-none h-100">
+        <div class="card-body d-flex align-items-center gap-3 p-3">
+          <img
+            src="{{ site.icon_url or 'https://www.google.com/s2/favicons?domain=' + site.url.split('/')[2] if site.url else '' }}"
+            alt=""
+            class="site-icon rounded flex-shrink-0"
+            width="32" height="32"
+            onerror="this.style.display='none'"
+          >
+          <div class="overflow-hidden">
+            <div class="fw-semibold text-body text-truncate">{{ site.name }}</div>
+            {% if site.description %}
+            <div class="small text-muted text-truncate">{{ site.description }}</div>
+            {% endif %}
+          </div>
+        </div>
+      </a>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+{% endfor %}
+
+{% if not categories %}
+<div class="text-center py-5 text-muted">
+  <i class="bi bi-inbox" style="font-size: 3rem;"></i>
+  <p class="mt-2">No sites yet. <a href="{{ url_for('admin') }}">Add some</a>.</p>
+</div>
+{% endif %}
+
+{% endblock %}
+
+{% block scripts %}
+<script>
+  const searchBox = document.getElementById('searchBox');
+  const wrappers = document.querySelectorAll('.site-card-wrapper');
+  const sections = document.querySelectorAll('.category-section');
+
+  searchBox.addEventListener('input', function () {
+    const q = this.value.toLowerCase().trim();
+
+    wrappers.forEach(w => {
+      w.style.display = w.dataset.keywords.toLowerCase().includes(q) ? '' : 'none';
+    });
+
+    sections.forEach(sec => {
+      const visible = sec.querySelectorAll('.site-card-wrapper[style*="display"]').length < sec.querySelectorAll('.site-card-wrapper').length;
+      const hasNoDisplay = Array.from(sec.querySelectorAll('.site-card-wrapper')).some(w => w.style.display !== 'none');
+      sec.style.display = hasNoDisplay ? '' : 'none';
+    });
+  });
+</script>
+{% endblock %}

@@ -1,0 +1,58 @@
+[
+  {
+    "name": "GitHub",
+    "url": "https://github.com",
+    "description": "Code hosting & collaboration",
+    "category": "Development",
+    "icon_url": "https://github.com/favicon.ico"
+  },
+  {
+    "name": "Stack Overflow",
+    "url": "https://stackoverflow.com",
+    "description": "Q&A for programmers",
+    "category": "Development",
+    "icon_url": "https://stackoverflow.com/favicon.ico"
+  },
+  {
+    "name": "Google",
+    "url": "https://www.google.com",
+    "description": "Search engine",
+    "category": "Tools",
+    "icon_url": "https://www.google.com/favicon.ico"
+  },
+  {
+    "name": "Gmail",
+    "url": "https://mail.google.com",
+    "description": "Email service",
+    "category": "Tools",
+    "icon_url": "https://mail.google.com/favicon.ico"
+  },
+  {
+    "name": "YouTube",
+    "url": "https://www.youtube.com",
+    "description": "Video platform",
+    "category": "Entertainment",
+    "icon_url": "https://www.youtube.com/favicon.ico"
+  },
+  {
+    "name": "Reddit",
+    "url": "https://www.reddit.com",
+    "description": "Community discussion",
+    "category": "Entertainment",
+    "icon_url": "https://www.reddit.com/favicon.ico"
+  },
+  {
+    "name": "Wikipedia",
+    "url": "https://www.wikipedia.org",
+    "description": "Free encyclopedia",
+    "category": "Knowledge",
+    "icon_url": "https://www.wikipedia.org/favicon.ico"
+  },
+  {
+    "name": "MDN Web Docs",
+    "url": "https://developer.mozilla.org",
+    "description": "Web development docs",
+    "category": "Knowledge",
+    "icon_url": "https://developer.mozilla.org/favicon.ico"
+  }
+]

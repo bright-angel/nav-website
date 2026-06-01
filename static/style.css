@@ -1,0 +1,18 @@
+.site-card {
+  transition: transform 0.15s, box-shadow 0.15s;
+  border: 1px solid var(--bs-border-color);
+}
+.site-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+.site-icon {
+  object-fit: contain;
+}
+.category-section h4 {
+  border-left: 4px solid var(--bs-primary);
+  padding-left: 0.75rem;
+}
+.table td {
+  vertical-align: middle;
+}
